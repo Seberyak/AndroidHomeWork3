@@ -8,7 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/MovieContainer"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="300dp"
         tools:ignore="MissingConstraints">
 
         <ImageView
@@ -26,6 +26,7 @@
             android:layout_marginStart="24dp"
             android:layout_marginBottom="24dp"
             android:text="@string/textview"
+            android:textColor="@color/white"
             android:textSize="24sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />

@@ -11,7 +11,8 @@ import java.io.IOException
 
 class MainActivity : AppCompatActivity() {
     private val url = "https://my-json-server.typicode.com/nikoloz14/movies-db/db";
-//    private val adapter = MainAdapter()
+
+    //    private val adapter = MainAdapter()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,12 +22,12 @@ class MainActivity : AppCompatActivity() {
 //        recyclerViewMain.layoutManager = LinearLayoutManager(this)
 //        recyclerViewMain.adapter = adapter
 
-        this.fetchJson(this)
+        this.fetchJson()
     }
 
 
-    private fun fetchJson(mainActivity: MainActivity) {
-        val client: OkHttpClient = OkHttpClient()
+    private fun fetchJson() {
+        val client = OkHttpClient()
         val request = Request.Builder().url(this.url).build()
 
         client.newCall(request).enqueue(object : Callback {
@@ -42,10 +43,10 @@ class MainActivity : AppCompatActivity() {
                     val recyclerViewMain: RecyclerView = findViewById(R.id.recyclerViewMain)
                     recyclerViewMain.adapter = MainAdapter(responseObject)
                 }
-
-
             }
         })
+
     }
+
 
 }
