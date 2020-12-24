@@ -1,13 +1,16 @@
 package com.cst.homework3
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.picasso.Picasso
 
-class MainAdapter(val movies:HelperSchemas.IRGETMovies) : RecyclerView.Adapter<CustomViewHolder>() {
+class MainAdapter(val movies: HelperSchemas.IRGETMovies) :
+    RecyclerView.Adapter<CustomViewHolder>() {
     private val movieTitles =
         listOf<String>("Breaking Bad", "Batman", "Avengers", "Game of Thrones")
 
@@ -21,9 +24,10 @@ class MainAdapter(val movies:HelperSchemas.IRGETMovies) : RecyclerView.Adapter<C
     override fun onBindViewHolder(holder: CustomViewHolder, position: Int) {
         val movieTitleTextView: TextView =
             holder.view.findViewById<TextView>(R.id.textMovieTitle)
-        val movieImgView : ImageView = holder.view.findViewById(R.id.MovieImg)
+        val movieImgView: ImageView = holder.view.findViewById(R.id.MovieImg)
         movieTitleTextView.text = movies.movies[position].title
-
+        Picasso.get().load(movies.movies[position].imageUrl).fit().centerCrop()
+            .into(movieImgView)
     }
 
     override fun getItemCount(): Int {
