@@ -7,4 +7,6 @@
     <string name="title_activity_detailed_movie">DetailedMovieActivity</string>
     <string name="tab_text_1">Info</string>
     <string name="tab_text_2">cast</string>
+    <string name="real_full_name">Real full name</string>
+    <string name="name_in_movie">Name in movie</string>
 </resources>

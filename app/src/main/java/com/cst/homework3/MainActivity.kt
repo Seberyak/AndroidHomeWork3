@@ -10,7 +10,7 @@ import java.io.IOException
 
 
 class MainActivity : AppCompatActivity() {
-    private val url = "https://my-json-server.typicode.com/nikoloz14/movies-db/db";
+    private val url = "https://my-json-server.typicode.com/nikoloz14/movies-db/db"
 
     //    private val adapter = MainAdapter()
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -18,9 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val recyclerViewMain: RecyclerView = findViewById(R.id.recyclerViewMain)
         recyclerViewMain.layoutManager = LinearLayoutManager(this)
-//        val recyclerViewMain: RecyclerView = findViewById(R.id.recyclerViewMain)
-//        recyclerViewMain.layoutManager = LinearLayoutManager(this)
-//        recyclerViewMain.adapter = adapter
+
 
         this.fetchJson()
     }
@@ -38,7 +36,7 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call, response: Response) {
                 val bodyAsString = response.body?.string() ?: return
                 val responseObject: HelperSchemas.IRGETMovies =
-                    Gson().fromJson(bodyAsString, HelperSchemas.IRGETMovies::class.java);
+                    Gson().fromJson(bodyAsString, HelperSchemas.IRGETMovies::class.java)
                 runOnUiThread {
                     val recyclerViewMain: RecyclerView = findViewById(R.id.recyclerViewMain)
                     recyclerViewMain.adapter = MainAdapter(responseObject)
